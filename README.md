@@ -1,4 +1,8 @@
 # eager
+[![Build Status](https://travis-ci.org/Emoun/eager.svg?branch=master)](https://travis-ci.org/Emoun/eager)
+[![](http://meritbadge.herokuapp.com/eager)](https://crates.io/crates/eager)
+[![](https://docs.rs/eager/badge.svg)](https://docs.rs/eager)
+
 
 Rust crate for simulating eager macro expansion.
 

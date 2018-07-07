@@ -5,7 +5,7 @@
 //! 2. `eager_macro_rules!`: Used to declare macro that can be eagerly expanded with `eager!`.
 //! 3. `lazy!`: Used in `eager!` to revert to lazy macro expansion.
 //!
-//! See the each macros documentation for details.
+//! See the each macro's documentation for details.
 //!
 //!
 
