@@ -1,6 +1,17 @@
 [package]
 name = "eager"
 version = "0.1.0"
-authors = ["Emad"]
+authors = ["Emad Jacob Maroun <emoun.open@gmail.com>"]
+
+description = "Crate for eager macro expansion."
+
+license = "MIT"
+
+readme = "README.md"
+
+repository = "https://github.com/Emoun/eager"
+
+keywords = ["macro","eager", "expansion", "utilities"]
+categories = ["rust-patterns","no-std"]
 
 [dependencies]
