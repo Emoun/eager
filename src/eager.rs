@@ -6,6 +6,7 @@
 /// #[macro_use]
 /// extern crate eager;
 ///
+/// //Declare an eager macro
 /// eager_macro_rules!{ $eager_1
 ///     macro_rules! plus_1{
 ///         ()=>{+ 1};
@@ -13,6 +14,7 @@
 /// }
 ///
 /// fn main(){
+/// 	// Use the macro inside an eager! call to expand it eagerly
 /// 	assert_eq!(4, eager!{2 plus_1!() plus_1!()});
 /// }
 /// ```
@@ -241,8 +243,6 @@
 /// must start with a pair of brackets, within which a link to the official `eager!` macro documentation
 /// must be provided. The link's visible text must be 'eager!' and
 /// the brackets must not be part of the link.
-///
-/// See the [`reverse_tt!`](macro.reverse_tt.html) documentation for an example.
 ///
 /// ### Auxiliary variable
 ///
