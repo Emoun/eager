@@ -1,5 +1,6 @@
 
 mod test_lazy_block_in_eager_is_lazy {
+	use eager::{eager};
 	/*
 	Tests that a non-eager!-enabled macro can be used inside a 'lazy!' block
 	*/
@@ -18,6 +19,7 @@ mod test_lazy_block_in_eager_is_lazy {
 	}
 }
 mod test_lazy_block_without_eager {
+	use eager::{lazy};
 	/*
 	Tests that can invoke `lazy!` without `eager!`.
 	*/
@@ -35,6 +37,7 @@ mod test_lazy_block_without_eager {
 	}
 }
 mod test_multiple_lazy_blocks {
+	use eager::{eager};
 	/*
 	Tests that can use multiple lazy blocks in eager.
 	*/
@@ -55,6 +58,7 @@ mod test_multiple_lazy_blocks {
 	}
 }
 mod test_nested_lazy {
+	use eager::{lazy, eager};
 	/*
 	Tests that a lazy blocks can be nested without having an effect.
 	*/
@@ -77,6 +81,7 @@ mod test_nested_lazy {
 	}
 }
 mod test_eager_in_lazy{
+	use eager::{lazy, eager, eager_macro_rules};
 	/*
 	Tests that an eager block can be inserted in a lazy block, and the it is eagerly expanded.
 	*/
@@ -104,6 +109,7 @@ mod test_eager_in_lazy{
 	}
 }
 mod test_deep_nested_eager_and_lazy{
+	use eager::{lazy, eager, eager_macro_rules};
 	/*
 	Tests that eager and lazy blocks can be deeply nested
 	*/
@@ -138,6 +144,7 @@ mod test_deep_nested_eager_and_lazy{
 
 // Same tests as above, but with the '()' block type
 mod paren_test_lazy_block_in_eager_is_lazy {
+	use eager::{lazy, eager};
 	/*
 	Tests that a non-eager!-enabled macro can be used inside a 'lazy!' block
 	*/
@@ -156,6 +163,7 @@ mod paren_test_lazy_block_in_eager_is_lazy {
 	}
 }
 mod paren_test_lazy_block_without_eager {
+	use eager::{lazy};
 	/*
 	Tests that can invoke `lazy!` without `eager!`.
 	*/
@@ -173,6 +181,7 @@ mod paren_test_lazy_block_without_eager {
 	}
 }
 mod paren_test_multiple_lazy_blocks {
+	use eager::{lazy, eager};
 	/*
 	Tests that can use multiple lazy blocks in eager.
 	*/
@@ -193,6 +202,7 @@ mod paren_test_multiple_lazy_blocks {
 	}
 }
 mod paren_test_nested_lazy {
+	use eager::{lazy, eager};
 	/*
 	Tests that a lazy blocks can be nested without having an effect.
 	*/
@@ -215,6 +225,7 @@ mod paren_test_nested_lazy {
 	}
 }
 mod paren_test_eager_in_lazy{
+	use eager::{lazy, eager, eager_macro_rules};
 	/*
 	Tests that an eager block can be inserted in a lazy block, and the it is eagerly expanded.
 	*/
@@ -242,6 +253,7 @@ mod paren_test_eager_in_lazy{
 	}
 }
 mod paren_test_deep_nested_eager_and_lazy{
+	use eager::{lazy, eager, eager_macro_rules};
 	/*
 	Tests that eager and lazy blocks can be deeply nested
 	*/

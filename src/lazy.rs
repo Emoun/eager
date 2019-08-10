@@ -7,7 +7,7 @@
 #[macro_export]
 macro_rules! lazy {
 	($($all:tt)*) => {
-		eager!{
+		$crate::eager!{
 			lazy!{
 				$($all)*
 			}

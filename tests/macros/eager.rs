@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 mod test_prefix{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that input can be followed by a macro call
 	*/
@@ -23,6 +24,7 @@ mod test_prefix{
 	test_macro!(!!);
 }
 mod test_postfix{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that a macro call can be precede some non-macro tokens.
 	*/
@@ -46,6 +48,7 @@ mod test_postfix{
 	test_macro!(!!);
 }
 mod test_multiple_calls{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Test that multiple macro call can be done after each other
 	*/
@@ -73,6 +76,7 @@ mod test_multiple_calls{
 	mac2!(SomeStruct, PartialEq);
 }
 mod test_nested_calls{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that macro call can be nested, i.e. one macro's expansion is the input
 	to another macro.
@@ -112,6 +116,7 @@ mod test_nested_calls{
 	mac3!{SomeStruct}
 }
 mod test_non_call_block_ignored{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that a block that is not part of a macro call is left as is.
 	(Assuming there is no macro call in it).
@@ -133,6 +138,7 @@ mod test_non_call_block_ignored{
 	test_macro!{}
 }
 mod test_nested_eagers{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that using the eager! macro inside the body of another eager! call
 	does nothing.
@@ -156,6 +162,7 @@ mod test_nested_eagers{
 	test_macro!{}
 }
 mod test_recursive_eagers{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that if an expansion creates a new 'eager!' call, it is ignored.
 	*/
@@ -176,6 +183,7 @@ mod test_recursive_eagers{
 	test_macro!{}
 }
 mod test_sequencial_blocks_arent_merged{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Test that if two block are immediately after each other, they are not merged into one block.
 	*/
@@ -191,6 +199,7 @@ mod test_sequencial_blocks_arent_merged{
 	}
 }
 mod test_block_before_macro_isnt_merged_with_expansion{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Test that if there is a block before a macro call, whos expansion result starts
 	with the same block type, that these two blocks arent merged after the macro is expanded.
@@ -216,6 +225,7 @@ mod test_block_before_macro_isnt_merged_with_expansion{
 
 // Same tests as above, but with the '()' block type
 mod paren_test_prefix{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that input can be followed by a macro call
 	*/
@@ -244,6 +254,7 @@ mod paren_test_prefix{
 	}
 }
 mod paren_test_postfix{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that a macro call can be followed by a macro call
 	*/
@@ -272,6 +283,7 @@ mod paren_test_postfix{
 	}
 }
 mod paren_test_multiple_calls{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that multliple macro calls can be done in serial
 	*/
@@ -294,6 +306,7 @@ mod paren_test_multiple_calls{
 	}
 }
 mod paren_test_nested_calls{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that a macro call can be nested, where the input to one macro is the expansion of another.
 	*/
@@ -330,6 +343,7 @@ mod paren_test_nested_calls{
 	}
 }
 mod paren_test_non_call_block_ignored{
+	use eager::{eager, eager_macro_rules};
 	
 	eager_macro_rules!{$eager_1
 		macro_rules! test_macro{
@@ -351,6 +365,7 @@ mod paren_test_non_call_block_ignored{
 	}
 }
 mod paren_test_nested_eagers{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that using the eager! macro inside the body of another eager! call
 	does nothing.
@@ -376,6 +391,7 @@ mod paren_test_nested_eagers{
 	}
 }
 mod pare_test_recursive_eagers{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that if an expansion creates a new 'eager!' call, it is ignored.
 	*/
@@ -399,6 +415,7 @@ mod pare_test_recursive_eagers{
 
 // Same tests as the two above, but with the '[]' block type
 mod bracket_test_prefix{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that input can be followed by a macro call
 	*/
@@ -421,6 +438,7 @@ mod bracket_test_prefix{
 	test_macro![!!];
 }
 mod bracket_test_postfix{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that a macro call can be precede some non-macro tokens.
 	*/
@@ -444,6 +462,7 @@ mod bracket_test_postfix{
 	test_macro![!!];
 }
 mod bracket_test_multiple_calls{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Test that multiple macro call can be done after each other
 	*/
@@ -471,6 +490,7 @@ mod bracket_test_multiple_calls{
 	mac2![SomeStruct, PartialEq];
 }
 mod bracket_test_nested_calls{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that macro call can be nested, i.e. one macro's expansion is the input
 	to another macro.
@@ -510,6 +530,7 @@ mod bracket_test_nested_calls{
 	mac3!{SomeStruct}
 }
 mod bracket_test_non_call_block_ignored{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that a block that is not part of a macro call is left as is.
 	(Assuming there is no macro call in it).
@@ -538,6 +559,7 @@ mod bracket_test_non_call_block_ignored{
 	}
 }
 mod bracket_test_nested_eagers{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that using the eager! macro inside the body of another eager! call
 	does nothing.
@@ -561,6 +583,7 @@ mod bracket_test_nested_eagers{
 	test_macro!{}
 }
 mod bracket_test_recursive_eagers{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Tests that if an expansion creates a new 'eager!' call, it is ignored.
 	*/
@@ -581,6 +604,7 @@ mod bracket_test_recursive_eagers{
 	test_macro!{}
 }
 mod bracket_test_sequencial_blocks_arent_merged{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Test that if two block are immediately after each other, they are not merged into one block.
 	*/
@@ -596,6 +620,7 @@ mod bracket_test_sequencial_blocks_arent_merged{
 	}
 }
 mod bracket_test_block_before_macro_isnt_merged_with_expansion{
+	use eager::{eager, eager_macro_rules};
 	/*
 	Test that if there is a block before a macro call, whos expansion result starts
 	with the same block type, that these two blocks arent merged after the macro is expanded.

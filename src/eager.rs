@@ -274,7 +274,7 @@ macro_rules! eager{
 	(
 		$($all:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[][][][]]
 			]
@@ -438,7 +438,7 @@ macro_rules! eager_internal{
 		]
 		$($expanded:tt)*
 	) => {
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy $modefix $prefix []]
 				$($rest_decoded)*
@@ -454,7 +454,7 @@ macro_rules! eager_internal{
 		]
 		{$($body:tt)*} $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy [][][]]
 				[$lazy $modefix [$($prefix)*][$($rest)*]{}]
@@ -470,7 +470,7 @@ macro_rules! eager_internal{
 		]
 		($($body:tt)*) $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy [][][]]
 				[$lazy $modefix [$($prefix)*][$($rest)*]()]
@@ -486,7 +486,7 @@ macro_rules! eager_internal{
 		]
 		[$($body:tt)*] $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy [][][]]
 				[$lazy $modefix [$($prefix)*][$($rest)*][]]
@@ -504,7 +504,7 @@ macro_rules! eager_internal{
 		]
 		eager!{$($body:tt)*} $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[]$modefix[$($prefix)*][]]
 				$($rest_decoded)*
@@ -520,7 +520,7 @@ macro_rules! eager_internal{
 		]
 		eager!($($body:tt)*) $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[]$modefix[$($prefix)*][]]
 				$($rest_decoded)*
@@ -536,7 +536,7 @@ macro_rules! eager_internal{
 		]
 		eager![$($body:tt)*] $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[]$modefix[$($prefix)*][]]
 				$($rest_decoded)*
@@ -552,7 +552,7 @@ macro_rules! eager_internal{
 		]
 		lazy!{$($body:tt)*} $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy]$modefix[$($prefix)*][]]
 				$($rest_decoded)*
@@ -568,7 +568,7 @@ macro_rules! eager_internal{
 		]
 		lazy!($($body:tt)*) $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy]$modefix[$($prefix)*][]]
 				$($rest_decoded)*
@@ -584,7 +584,7 @@ macro_rules! eager_internal{
 		]
 		lazy![$($body:tt)*] $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy]$modefix[$($prefix)*][]]
 				$($rest_decoded)*
@@ -600,7 +600,7 @@ macro_rules! eager_internal{
 		]
 		eager!{$($body:tt)*} $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[][$($rest)*][$($prefix)*][]]
 				$($rest_decoded)*
@@ -616,7 +616,7 @@ macro_rules! eager_internal{
 		]
 		eager!($($body:tt)*) $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[][$($rest)*][$($prefix)*][]]
 				$($rest_decoded)*
@@ -632,7 +632,7 @@ macro_rules! eager_internal{
 		]
 		eager![$($body:tt)*] $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[][$($rest)*][$($prefix)*][]]
 				$($rest_decoded)*
@@ -648,7 +648,7 @@ macro_rules! eager_internal{
 		]
 		lazy!{$($body:tt)*} $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy][$($rest)*][$($prefix)*][]]
 				$($rest_decoded)*
@@ -664,7 +664,7 @@ macro_rules! eager_internal{
 		]
 		lazy!($($body:tt)*) $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy][$($rest)*][$($prefix)*][]]
 				$($rest_decoded)*
@@ -680,7 +680,7 @@ macro_rules! eager_internal{
 		]
 		lazy![$($body:tt)*] $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy][$($rest)*][$($prefix)*][]]
 				$($rest_decoded)*
@@ -697,7 +697,7 @@ macro_rules! eager_internal{
 		]
 		$next:tt $($rest:tt)*
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy $modefix[$next $($prefix)*][]]
 				$($rest_decoded)*
@@ -763,7 +763,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[@lazy][] $prefix []]
 				$($rest)*
@@ -778,7 +778,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[[][] $prefix []]
 				$($rest)*
@@ -796,7 +796,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy_0 $modefix_0 [$($last_rest)*] []]
 				[$lazy $modefix $prefix $postfix {$last $($body)*}]
@@ -812,7 +812,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy_0 $modefix_0 [$($last_rest)*] []]
 				[$lazy $modefix $prefix $postfix ($last $($body)*)]
@@ -828,7 +828,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy_0 $modefix_0 [$($last_rest)*] []]
 				[$lazy $modefix $prefix $postfix [$last $($body)*]]
@@ -844,7 +844,7 @@ macro_rules! eager_internal{
 			
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				$([$lazy $modefix $prefix $postfix $body])+
 			]
@@ -860,7 +860,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy $modefix [{$($body)*} $($prefix)*][]]
 				$($rest)*
@@ -876,7 +876,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy $modefix [($($body)*) $($prefix)*][]]
 				$($rest)*
@@ -892,7 +892,7 @@ macro_rules! eager_internal{
 			$($rest:tt)*
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@check_expansion[
 				[$lazy $modefix [[$($body)*] $($prefix)*][]]
 				$($rest)*
@@ -908,7 +908,7 @@ macro_rules! eager_internal{
 			[$lazy:tt [][$($result:tt)*][]]
 		]
 	)=>{
-		eager_internal!{
+		$crate::eager_internal!{
 			@reverse_tt[
 				[$($result)*]
 				[]
@@ -924,7 +924,7 @@ macro_rules! eager_internal{
 			[$($reversed:tt)*]
 		]
 	) => {
-		eager_internal!{
+		$crate::eager_internal!{
 			@reverse_tt[
 				[$($to_reverse_rest)+]
 				[$to_reverse_next $($reversed)*]

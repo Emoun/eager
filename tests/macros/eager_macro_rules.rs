@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 mod test_produces_at_least_the_same{
+	use eager::{eager_macro_rules};
 	/*
 	Test that a declared macro will work as if it was produced with 'macro_rules'
 	when not called through'eager'
@@ -32,6 +33,7 @@ mod test_produces_at_least_the_same{
 	}
 }
 mod test_produces_eager_macro{
+	use eager::{eager_macro_rules, eager};
 	/*
 	Test that a declared macro will work with eager!
 	*/
@@ -51,6 +53,7 @@ mod test_produces_eager_macro{
 	}
 }
 mod test_eager_vs_non_eager_expansion_order{
+	use eager::{eager_macro_rules, eager};
 	/*
 	Test that the expanded macro has the eager versions of each rule first.
 	This is required because the other way around may result in the eager
@@ -91,6 +94,7 @@ mod test_eager_vs_non_eager_expansion_order{
 	mac2!{SomeStruct}
 }
 mod test_multiple_macro_declarations{
+	use eager::{eager_macro_rules};
 	/*
 	Test that multiple macros can be declared
 	*/
@@ -143,6 +147,7 @@ mod test_attributes{
 	
 	#[macro_use]
 	mod test_mod{
+		use eager::{eager_macro_rules};
 		eager_macro_rules!{ $eager_1
 			#[macro_export]
 			#[doc(hidden)]	// Whether this gets the correct effect cannot be tested
@@ -157,6 +162,7 @@ mod test_attributes{
 	}
 }
 mod test_rustdoc{
+	use eager::{eager_macro_rules};
 	/*
 	Tests that can assign rustdoc to the declared macros.
 	Whether the docs are generated correctly cannot be tested through usual

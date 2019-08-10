@@ -55,7 +55,7 @@ macro_rules! eager_macro_rules{
 		)+
 	)=>{
 		$(
-			eager_macro_rules_internal!{
+			$crate::eager_macro_rules_internal!{
 				@first[
 					$(#[$($metas)*])*
 					$macro_name $dollar1 $id_1
@@ -77,7 +77,7 @@ macro_rules! eager_macro_rules_internal{
 			$($prev_grammar:tt => $prev_expansion:tt)*
 		]
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@final[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -95,7 +95,7 @@ macro_rules! eager_macro_rules_internal{
 		]
 		{$($next_grammar:tt)*} $($rest:tt)+
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@expansion[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -113,7 +113,7 @@ macro_rules! eager_macro_rules_internal{
 		]
 		($($next_grammar:tt)*) $($rest:tt)+
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@expansion[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -131,7 +131,7 @@ macro_rules! eager_macro_rules_internal{
 		]
 		[$($next_grammar:tt)*] $($rest:tt)+
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@expansion[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -152,7 +152,7 @@ macro_rules! eager_macro_rules_internal{
 		]
 		 => {$($next_expansion:tt)*} $($rest:tt)*
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@first[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -171,7 +171,7 @@ macro_rules! eager_macro_rules_internal{
 		]
 		 => ($($next_expansion:tt)*) $($rest:tt)*
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@first[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -190,7 +190,7 @@ macro_rules! eager_macro_rules_internal{
 		]
 		 => [$($next_expansion:tt)*] $($rest:tt)*
 	) => {
-		eager_macro_rules_internal!{
+		$crate::eager_macro_rules_internal!{
 			@first[
 				$(#[$($metas)*])*
 				$macro_name$dollar1 $id_1
@@ -216,7 +216,7 @@ macro_rules! eager_macro_rules_internal{
 					@eager[$dollar1($dollar1 $id_1:tt)*]
 					$($rules_grammar)*
 				} => {
-					eager_internal!{
+					$crate::eager_internal!{
 						@from_macro[$dollar1($dollar1 $id_1)*]
 						$($rules_expansion)*
 					}
